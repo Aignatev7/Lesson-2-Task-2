@@ -4,12 +4,17 @@
 
 struct accounts
 {
-	int account_number;
+	int account_number = 0;
 	std::string owner_name;
-	int balance;
-	int new_balance;
-	int account;
+	int balance = 0;
+	int new_balance = 0;
+	int account = 0;
 };
+
+void out_account(int account_number, std::string owner_name, int balance, int new_balance)
+{
+	std::cout << "¬аш счет: " << owner_name << ", " << account_number << ", " << new_balance;
+}
 
 int main(int argc, char** argv)
 {
@@ -26,7 +31,7 @@ int main(int argc, char** argv)
 	std::cin >> acc.balance;
 	std::cout << "¬ведите новый баланс: ";
 	std::cin >> acc.new_balance;
-	std::cout << "¬аш счет: " << acc.owner_name << ", " << acc.account_number << ", " << acc.new_balance;
+	out_account(acc.account_number, acc.owner_name, acc.balance, acc.new_balance);
 }
 
 /*
