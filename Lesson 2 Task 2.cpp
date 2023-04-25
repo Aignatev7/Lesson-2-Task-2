@@ -7,13 +7,12 @@ struct accounts
 	int account_number = 0;
 	std::string owner_name;
 	int balance = 0;
-	int new_balance = 0;
 	int account = 0;
 };
 
-void out_account(int account_number, std::string owner_name, int balance, int new_balance)
+void increment_balance(accounts* bal, int new_bal)
 {
-	std::cout << "¬аш счет: " << owner_name << ", " << account_number << ", " << new_balance;
+	bal->balance = new_bal;
 }
 
 int main(int argc, char** argv)
@@ -23,6 +22,7 @@ int main(int argc, char** argv)
 	SetConsoleOutputCP(1251);					//устанавливает кодировку вывода на консоль
 
 	accounts acc;
+	
 	std::cout << "¬ведите номер счЄта: ";
 	std::cin >> acc.account_number;
 	std::cout << "¬ведите им€ владельца: ";
@@ -30,8 +30,10 @@ int main(int argc, char** argv)
 	std::cout << "¬ведите баланс: ";
 	std::cin >> acc.balance;
 	std::cout << "¬ведите новый баланс: ";
-	std::cin >> acc.new_balance;
-	out_account(acc.account_number, acc.owner_name, acc.balance, acc.new_balance);
+	int new_balance = 0;
+	std::cin >> new_balance;
+	increment_balance(&acc, new_balance);
+	std::cout << "¬аш счет: " << acc.owner_name << ", " << acc.account_number << ", " << acc.balance;
 }
 
 /*
